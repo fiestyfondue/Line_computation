@@ -2,12 +2,17 @@
 
 namespace Line_Computation
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            Length len = new Length();
-            len.FindLength();
+            Length length = new Length();
+            length.FindLength();
+
+            Equality eq = new Equality();
+            eq.LineEquals();
         }
+     
+
     }
 }

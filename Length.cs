@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Line_Computation
 {
-    class Length
+    public class Length
     {
         public void FindLength()
         {
