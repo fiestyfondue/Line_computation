@@ -4,23 +4,38 @@ using System.Text;
 
 namespace Line_Computation
 {
-    public class Length
+    abstract class LineComparingAbstract
     {
-        readonly private int x1, x2, y1, y2;
-        public Length(int x1, int x2, int y1, int y2)
+        public abstract void CompareLines();
+    }
+    class LineComparing : LineComparingAbstract
+    {/// <summary>
+     /// Comparing 2 lines and displaying message if equals
+     /// </summary>
+        private double LengthOfLine1, LengthOfLine2;
+        public override void CompareLines()
         {
-            this.x1 = x1;
-            this.x2 = x2;
-            this.y1 = y1;
-            this.y2 = y2;
+            FindLength findLength1 = new FindLength(-7, 17, -4, 6);
+            FindLength findLength2 = new FindLength(-7, 17, -4, 2);
+            LengthOfLine1 = findLength1.Length();
+            LengthOfLine2 = findLength2.Length();
+            Compare2Lengths(LengthOfLine1, LengthOfLine2);
         }
-
-        public double Len()
+        private void Compare2Lengths(double LengthOfLine1, double LengthOfLine2)
         {
-            double LengthOfLine;
-            LengthOfLine = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            return LengthOfLine;
+            try
+            {
+                if (LengthOfLine1 == LengthOfLine2)
+                    Console.WriteLine($"Length of line1 {LengthOfLine1} is equal to Length of Line2 {LengthOfLine2}");
+                else if (LengthOfLine1 > LengthOfLine2)
+                    Console.WriteLine($"Length of line1 {LengthOfLine1} is greater than Length of Line2 {LengthOfLine2}");
+                else
+                    Console.WriteLine($"Length of line1 {LengthOfLine1} is less than Length of Line2 {LengthOfLine2}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
-
     }
 }

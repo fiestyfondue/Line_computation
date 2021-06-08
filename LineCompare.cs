@@ -4,24 +4,38 @@ using System.Text;
 
 namespace Line_Computation
 {
-    class LineCompare
+    public abstract class Line_Computation
     {
-        public void CompareLines()
+        public abstract double Length();
+    }
+    class FindLength : Line_Computation
+    {/// <summary>
+     /// UC3 - After Solving length of line checking if lines are Equal/greater/lesser to otherdsf.
+     /// length of a line = sqrt(x2 - x1)^2 + (y2 + y1)^2;
+     /// scope of variables is limited to this class.
+     /// </summary>
+        readonly private int x1, x2, y1, y2;
+        private double LengthOfLine;
+        public FindLength(int x1, int x2, int y1, int y2)
         {
-            Length findLength1 = new Length(-7, 17, -4, 6);
-            Length findLength2 = new Length(-7, 17, -4, 2);
-            double LengthOfLine1 = findLength1.Len();
-            double LengthOfLine2 = findLength2.Len();
-            Compare2Lengths(LengthOfLine1, LengthOfLine2);
+            this.x1 = x1;
+            this.x2 = x2;
+            this.y1 = y1;
+            this.y2 = y2;
         }
-        private void Compare2Lengths(double LengthOfLine1, double LengthOfLine2)
+
+        public override double Length()
         {
-            if (LengthOfLine1 == LengthOfLine2)
-                Console.WriteLine($"Length of line1 {LengthOfLine1} is equal to Length of Line2 {LengthOfLine2}");
-            else if (LengthOfLine1 > LengthOfLine2)
-                Console.WriteLine($"Length of line1 {LengthOfLine1} is greater than Length of Line2 {LengthOfLine2}");
-            else
-                Console.WriteLine($"Length of line1 {LengthOfLine1} is less than Length of Line2 {LengthOfLine2}");
+            try
+            {
+                LengthOfLine = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+                return LengthOfLine;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Length of line calculation");
+            }
+            return 0;
         }
     }
 }

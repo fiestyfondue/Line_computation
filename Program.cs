@@ -2,17 +2,23 @@
 
 namespace Line_Computation
 {
-    public class Program
-    {
-        static void Main(string[] args)
-        {
-            Length length = new Length(4, 4, 6,7);
-            length.Len();
-
-            LineCompare eq = new LineCompare();
-            eq.CompareLines();
+    class Program
+    {/// <summary>
+     /// Compare line lenghts and check line is greater/lesser/equal to other.
+     /// Completing all use cases with oops concepts.
+     /// </summary>
+     /// <param name="args"></param>
+            static void Main(string[] args)
+            {
+                try
+                {
+                    LineComparing lineComparing = new LineComparing();
+                    lineComparing.CompareLines();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Main program, Something went wrong!!");
+                }
+            }
         }
-     
-
-    }
 }
