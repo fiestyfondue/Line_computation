@@ -6,17 +6,21 @@ namespace Line_Computation
 {
     public class Length
     {
-        public void FindLength()
+        readonly private int x1, x2, y1, y2;
+        public Length(int x1, int x2, int y1, int y2)
         {
-            double distance;
-            Console.WriteLine("Enter the values of x1,x2,y1,y2 respectively");
-            double x1 = Convert.ToInt32(Console.ReadLine());
-            double x2 = Convert.ToInt32(Console.ReadLine());
-            double y1 = Convert.ToInt32(Console.ReadLine());
-            double y2 = Convert.ToInt32(Console.ReadLine());
-
-            distance = (double)Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-            Console.WriteLine(distance);
+            this.x1 = x1;
+            this.x2 = x2;
+            this.y1 = y1;
+            this.y2 = y2;
         }
+
+        public double Len()
+        {
+            double LengthOfLine;
+            LengthOfLine = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+            return LengthOfLine;
+        }
+
     }
 }

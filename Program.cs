@@ -6,11 +6,11 @@ namespace Line_Computation
     {
         static void Main(string[] args)
         {
-            Length length = new Length();
-            length.FindLength();
+            Length length = new Length(4, 4, 6,7);
+            length.Len();
 
-            Equality eq = new Equality();
-            eq.LineEquals();
+            LineCompare eq = new LineCompare();
+            eq.CompareLines();
         }
      
 
